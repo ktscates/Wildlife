@@ -4,14 +4,36 @@ import java.util.List;
 
 public class Animal {
     private String name;
+    private String endangered;
+    private String health;
+    private String age;
     private int id;
 
-    public Animal(String name){
+    public Animal(String name, String endangered, String health, String age){
         this.name = name;
+        this.endangered = endangered;
+        this.health = health;
+        this.age = age;
     }
 
     public String getName(){
         return name;
+    }
+
+    public String getEndangered(){
+        return endangered;
+    }
+
+    public String getHealth(){
+        return health;
+    }
+
+    public String getAge(){
+        return age;
+    }
+
+    public int getId(){
+        return id;
     }
 
     public void save(){
