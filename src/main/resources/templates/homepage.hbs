@@ -1,0 +1,35 @@
+{{#partial "title" }}
+    Wildlife - Tracker
+{{/partial}}
+
+<!--form.hbs.-->
+{{#partial "content"}}
+
+    {{#if animals}}
+        <p>All Animals</p>
+        {{#each animals}}
+
+            <h5 class="card-title"> {{name}} </h5>
+
+        {{/each}}
+    {{else}}
+        <p>No Animals</p>
+    {{/if}}
+
+    <form action='/animals' method="post">
+
+        <h3>Add an Animal</h3>
+
+        <fieldset>
+            <input id="name" name="name" placeholder="Name..." type="text" required>
+        </fieldset>
+
+        <fieldset>
+            <button class="btn btn-success" name="submit" type="submit" id="submit">Add</button>
+        </fieldset>
+    </form>
+
+    <!--form.hbs.-->
+{{/partial}}
+
+{{> layout.hbs}}
