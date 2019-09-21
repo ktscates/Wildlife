@@ -16,7 +16,7 @@
 
                 <h1>Add Animals</h1>
 
-                <form action="/animals" method="post">
+                <form action="/show" method="post">
 
                     <div class="form-group">
                         <label>Ranger Name</label>
@@ -78,41 +78,57 @@
                         </select>
                     </div>
 
-                    <button class="btn btn-primary" type="submit">Add Animal
+                    <button class="btn btn-success" type="submit">Add Animal
                         <span class="glyphicon glyphicon-plus"></span></button>
 
                 </form>
+
             </div>
+
+            <div class="col-md-6">
+
+                <h1>Show All Animals and Sightings</h1>
+
+                <div>
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+                                <th>Range Name</th>
+                                <th>Animal Name</th>
+                                <th>Endangered</th>
+                                <th>Location</th>
+                                <th>Health</th>
+                                <th>Age</th>
+                                <th>Date Spotted</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            {{#each sightings}}
+                            <tr>
+
+                                <td>{{ranger}}</td>
+                                <td>{{name}}</td>
+                                <td>{{endangered}}</td>
+                                <td>{{location}}</td>
+                                <td>{{health}}</td>
+                                <td>{{age}}</td>
+                                <td>{{date}}</td>
+
+                            </tr>
+                        {{/each}}
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
         </div>
+
     </div>
-
-
-    <form action='/animals' method="post">
-
-
-        <fieldset>
-            <input id="ranger" name="ranger" placeholder="Ranger..." type="text" required>
-        </fieldset>
-        <fieldset>
-            <input id="name" name="name" placeholder="Name..." type="text" required>
-        </fieldset>
-        <fieldset>
-            <input id="endangered" name="endangered" placeholder="Endangered..." type="text" required>
-        </fieldset>
-        <fieldset>
-            <input id="location" name="location" placeholder="Location..." type="text" required>
-        </fieldset>
-        <fieldset>
-            <input id="health" name="health" placeholder="Health..." type="text" required>
-        </fieldset>
-        <fieldset>
-            <input id="age" name="age" placeholder="Age..." type="text" required>
-        </fieldset>
-
-        <fieldset>
-            <button class="btn btn-success" name="submit" type="submit" id="submit">Add</button>
-        </fieldset>
-    </form>
 
     <!--form.hbs.-->
 {{/partial}}

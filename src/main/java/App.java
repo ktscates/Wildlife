@@ -24,7 +24,7 @@ public class App {
             return new ModelAndView(model, layout);
         }, new HandlebarsTemplateEngine());
 
-        post("/animals", (request, response) -> {
+        post("/show", (request, response) -> {
             String ranger = request.queryParams("ranger");
             String name = request.queryParams("name");
             String endangered = request.queryParams("endangered");
@@ -32,12 +32,17 @@ public class App {
             String health = request.queryParams("health");
             String age = request.queryParams("age");
             Animal newAnimal = new Animal(name, endangered, health, age);
+            model.put("name", newAnimal.getName());
+            model.put("endangered", newAnimal.getEndangered());
+            model.put("health", newAnimal.getHealth());
+            model.put("age", newAnimal.getAge());
             newAnimal.save();
             Sighting newSighting = new Sighting(ranger, location, newAnimal.getId());
             newSighting.save();
-            model.put("sightings", Sighting.all());
             model.put("animals",Animal.all());
+            model.put("sightings", Sighting.all());
             model.put("AnimalClass", Animal.class);
+            System.out.println(newAnimal);
             return new ModelAndView(model, "homepage.hbs");
         }, new HandlebarsTemplateEngine());
     }

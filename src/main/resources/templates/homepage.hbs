@@ -16,7 +16,7 @@
 
                 <h1>Add Animals</h1>
 
-                <form action="/animals" method="post">
+                <form action="/show" method="post">
 
                     <div class="form-group">
                         <label>Ranger Name</label>
@@ -92,7 +92,9 @@
                 <div>
 
                     <table>
+
                         <thead>
+
                             <tr>
                                 <th>Range Name</th>
                                 <th>Animal Name</th>
@@ -104,9 +106,21 @@
                             </tr>
                         </thead>
                         <tbody>
+
+                            {{#each sightings}}
                             <tr>
-                                <td></td>
+
+                                <td>{{ranger}}</td>
+                                <td>{{name}}</td>
+                                <td>{{endangered}}</td>
+                                <td>{{location}}</td>
+                                <td>{{health}}</td>
+                                <td>{{age}}</td>
+                                <td>{{date}}</td>
+
                             </tr>
+                        {{/each}}
+
                         </tbody>
                     </table>
                 </div>
