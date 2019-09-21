@@ -25,12 +25,19 @@ public class App {
         }, new HandlebarsTemplateEngine());
 
         post("/animals", (request, response) -> {
+            String ranger = request.queryParams("ranger");
             String name = request.queryParams("name");
             String endangered = request.queryParams("endangered");
+            String location = request.queryParams("location");
             String health = request.queryParams("health");
             String age = request.queryParams("age");
             Animal newAnimal = new Animal(name, endangered, health, age);
             newAnimal.save();
+            Sighting newSighting = new Sighting(ranger, location, newAnimal.getId());
+            newSighting.save();
+            model.put("sightings", Sighting.all());
+            model.put("animals",Animal.all());
+            model.put("AnimalClass", Animal.class);
             return new ModelAndView(model, "homepage.hbs");
         }, new HandlebarsTemplateEngine());
     }
