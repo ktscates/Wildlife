@@ -26,7 +26,10 @@ public class App {
 
         post("/animals", (request, response) -> {
             String name = request.queryParams("name");
-            Animal newAnimal = new Animal(name);
+            String endangered = request.queryParams("endangered");
+            String health = request.queryParams("health");
+            String age = request.queryParams("age");
+            Animal newAnimal = new Animal(name, endangered, health, age);
             newAnimal.save();
             return new ModelAndView(model, "homepage.hbs");
         }, new HandlebarsTemplateEngine());

@@ -17,6 +17,24 @@ public class AnimalTest {
     }
 
     @Test
+    public void getEndangered_animalInstantiateWithEndangered_yes(){
+        Animal testAnimal = new Animal("Lion", "yes", "okay", "newborn");
+        assertEquals("yes", testAnimal.getEndangered());
+    }
+
+    @Test
+    public void getHealth_animalInstantiateWithHealth_okay(){
+        Animal testAnimal = new Animal("Lion", "yes", "okay", "newborn");
+        assertEquals("okay", testAnimal.getHealth());
+    }
+
+    @Test
+    public void getAge_animalInstantiateWithAge_newborn(){
+        Animal testAnimal = new Animal("Lion", "yes", "okay", "newborn");
+        assertEquals("newborn", testAnimal.getAge());
+    }
+
+    @Test
     public void save_insertIntoDatabase_Animal(){
         Animal testAnimal = new Animal("Lion", "yes", "okay", "newborn");
         testAnimal.save();
@@ -35,4 +53,5 @@ public class AnimalTest {
 
     @Rule
     public DatabaseRule database = new DatabaseRule();
+
 }

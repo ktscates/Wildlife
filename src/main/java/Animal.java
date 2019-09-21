@@ -38,9 +38,12 @@ public class Animal {
 
     public void save(){
         try(Connection con = DB.sql2o.open()){
-            String sql = "INSERT INTO animals(name) VALUES(:name)";
+            String sql = "INSERT INTO animals(name, endangered, health, age) VALUES(:name, :endangered, :health, :age)";
             con.createQuery(sql)
                     .addParameter("name", this.name)
+                    .addParameter("endangered", this.endangered)
+                    .addParameter("health", this.health)
+                    .addParameter("age", this.age)
                     .executeUpdate();
         }
     }
@@ -48,7 +51,8 @@ public class Animal {
     public static List<Animal> all(){
         String sql = "SELECT * FROM animals";
         try(Connection con = DB.sql2o.open()){
-            return con.createQuery(sql).executeAndFetch(Animal.class);
+            return con.createQuery(sql)
+                    .executeAndFetch(Animal.class);
         }
     }
 
