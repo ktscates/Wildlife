@@ -5,45 +5,89 @@
 <!--form.hbs.-->
 {{#partial "content"}}
 
-    {{#if animals}}
-        <p>All Animals</p>
-        {{#each animals}}
+    <h1 id="header">WILDLIFE - TRACKER</h1>
+    <hr>
 
-            <h5 class="card-title"> {{name}} {{endangered}} {{health}} {{age}} </h5>
+    <div class="container">
 
+        <div class="row">
 
+            <div class="col-md-6">
 
-        {{/each}}
-    {{else}}
-        <p>No Animals</p>
-    {{/if}}
+                <h1>Add Animals</h1>
 
-    <form action='/animals' method="post">
+                <form action="/animals" method="post">
 
+                    <div class="form-group">
+                        <label>Ranger Name</label>
+                        <input type="text" id="ranger" name="ranger" class="form-control" placeholder="Ranger Name..." required>
+                    </div>
 
-        <fieldset>
-            <input id="ranger" name="ranger" placeholder="Ranger..." type="text" required>
-        </fieldset>
-        <fieldset>
-            <input id="name" name="name" placeholder="Name..." type="text" required>
-        </fieldset>
-        <fieldset>
-            <input id="endangered" name="endangered" placeholder="Endangered..." type="text" required>
-        </fieldset>
-        <fieldset>
-            <input id="location" name="location" placeholder="Location..." type="text" required>
-        </fieldset>
-        <fieldset>
-            <input id="health" name="health" placeholder="Health..." type="text" required>
-        </fieldset>
-        <fieldset>
-            <input id="age" name="age" placeholder="Age..." type="text" required>
-        </fieldset>
+                    <div class="form-group">
+                        <label>Animal Name</label>
+                        <input type="text" id="name" name="name" class="form-control" placeholder="Animal Name..." required>
+                    </div>
 
-        <fieldset>
-            <button class="btn btn-success" name="submit" type="submit" id="submit">Add</button>
-        </fieldset>
-    </form>
+                    <div class="form-group">
+                        <label>Endangered</label>
+                        <br>
+                        <label>
+                            <input type="checkbox" value="Yes" name="endangered" id="endangered">
+                            <span for="yes">Yes</span>
+                        </label>
+                        <br>
+                        <label>
+                            <input type="checkbox" value="No" name="endangered" id="endangered">
+                            <span for="no">No</span>
+                        </label>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Location</label><br>
+                        <select name="location">
+                            <option>Choose location...</option>
+                            <div id="location">
+                                <option value="Zone A">Zone A</option>
+                                <option value="Zone B">Zone B</option>
+                                <option value="Zone C">Zone C</option>
+                            </div>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Animal's health</label><br>
+                        <select name="health">
+                            <option>Condition...</option>
+                            <div id="age">
+                                <option value="Ill">Ill</option>
+                                <option value="Okay">Okay</option>
+                                <option value="Healthy">Healthy</option>
+                            </div>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Age</label><br>
+                        <select name="age">
+                            <option>Estimate...</option>
+                            <div id="age">
+                                <option value="Newborn">Newborn</option>
+                                <option value="Young">Young</option>
+                                <option value="Adult">Adult</option>
+                            </div>
+                        </select>
+                    </div>
+
+                    <button class="btn btn-success" type="submit">Add Animal
+                        <span class="glyphicon glyphicon-plus"></span></button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
 
     <!--form.hbs.-->
 {{/partial}}
