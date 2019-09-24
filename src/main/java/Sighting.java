@@ -4,15 +4,15 @@ import java.util.List;
 public class Sighting {
 
     private String ranger;
-    private int animals_id;
+    private int animal_id;
     private String location;
     private String date;
     private int id;
 
-    public Sighting(String ranger, String location, int animals_id){
+    public Sighting(String ranger, String location, int animal_id){
         this.ranger = ranger;
         this.location = location;
-        this.animals_id = animals_id;
+        this.animal_id = animal_id;
     }
 
     public String getRanger(){
@@ -20,7 +20,7 @@ public class Sighting {
     }
 
     public int getAnimalId(){
-        return animals_id;
+        return animal_id;
     }
 
     public String getLocation(){
@@ -37,10 +37,10 @@ public class Sighting {
 
     public void save(){
         try(Connection con = DB.sql2o.open()){
-            String sql = "INSERT INTO sightings(ranger, animals_id, location, date) VALUES(:ranger, :animals_id, :location, now())";
+            String sql = "INSERT INTO sightings(ranger, animal_id, location, date) VALUES(:ranger, :animal_id, :location, now())";
             con.createQuery(sql)
                     .addParameter("ranger", this.ranger)
-                    .addParameter("animals_id", this.animals_id)
+                    .addParameter("animal_id", this.animal_id)
                     .addParameter("location", this.location)
                     .executeUpdate();
         }

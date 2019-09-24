@@ -95,31 +95,39 @@
 
                         <thead>
 
-                            <tr>
-                                <th>Range Name</th>
-                                <th>Animal Name</th>
-                                <th>Endangered</th>
-                                <th>Location</th>
-                                <th>Health</th>
-                                <th>Age</th>
-                                <th>Date Spotted</th>
-                            </tr>
+                        <tr>
+                            <th>Range Name</th>
+                            <th>Animal Name</th>
+                            <th>Endangered</th>
+                            <th>Location</th>
+                            <th>Health</th>
+                            <th>Age</th>
+                            <th>Date Spotted</th>
+                        </tr>
                         </thead>
                         <tbody>
+                        {{#if animals}}
+                            {{#each animals}}
 
-                            {{#each sightings}}
+
+                        {{#each sightings}}
+
+                                {{#each animals}}
+
                             <tr>
-
                                 <td>{{ranger}}</td>
-                                <td>{{name.getNameAnimal}}</td>
+                                <td>{{name}}</td>
                                 <td>{{endangered}}</td>
                                 <td>{{location}}</td>
                                 <td>{{health}}</td>
                                 <td>{{age}}</td>
                                 <td>{{date}}</td>
-
                             </tr>
+                                {{/each}}
                         {{/each}}
+
+                         {{/each}}
+                        {{/if}}
 
                         </tbody>
                     </table>
@@ -134,3 +142,4 @@
 {{/partial}}
 
 {{> layout.hbs}}
+

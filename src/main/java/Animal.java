@@ -56,43 +56,4 @@ public class Animal {
         }
     }
 
-    public static String getNameAnimal(int id) {
-        String sql = "SELECT name FROM animals WHERE id = :id;";
-        try(Connection con = DB.sql2o.open()) {
-            String name = con.createQuery(sql)
-                    .addParameter("id", id)
-                    .executeScalar(String.class);
-            return name;
-        }
-    }
-
-    public static String getEndangeredAnimal(int id) {
-        String sql = "SELECT endangered FROM animals WHERE id = :id;";
-        try(Connection con = DB.sql2o.open()) {
-            String endangered = con.createQuery(sql)
-                    .addParameter("id", id)
-                    .executeScalar(String.class);
-            return endangered;
-        }
-    }
-
-    public static String getHealthAnimal(int id) {
-        String sql = "SELECT health FROM animals WHERE id = :id;";
-        try(Connection con = DB.sql2o.open()) {
-            String health = con.createQuery(sql)
-                    .addParameter("id", id)
-                    .executeScalar(String.class);
-            return health;
-        }
-    }
-
-    public static String getAgeAnimal(int id) {
-        String sql = "SELECT age FROM animals WHERE id = :id;";
-        try(Connection con = DB.sql2o.open()) {
-            String age = con.createQuery(sql)
-                    .addParameter("id", id)
-                    .executeScalar(String.class);
-            return age;
-        }
-    }
 }

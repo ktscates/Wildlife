@@ -38,6 +38,8 @@ public class App {
             model.put("age", newAnimal.getAge());
             newAnimal.save();
             Sighting newSighting = new Sighting(ranger, location, newAnimal.getId());
+            model.put("ranger", newSighting.getRanger());
+            model.put("location", newSighting.getLocation());
             newSighting.save();
             model.put("animals",Animal.all());
             model.put("sightings", Sighting.all());
