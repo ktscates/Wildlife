@@ -4,11 +4,10 @@
 
 <!--form.hbs.-->
 {{#partial "content"}}
-
-    <h1 id="header">WILDLIFE - TRACKER</h1>
+    <h1 style="color:white; text-align:center;" id="header">WILDLIFE - TRACKER</h1>
     <hr>
 
-    <div class="container">
+    <div style="color:white;" class="container">
 
         <div class="row">
 
@@ -44,7 +43,7 @@
 
                     <div class="form-group">
                         <label>Location</label><br>
-                        <select name="location">
+                        <select style="color:black;" name="location">
                             <option>Choose location...</option>
                             <div id="location">
                                 <option value="Zone A">Zone A</option>
@@ -56,7 +55,7 @@
 
                     <div class="form-group">
                         <label>Animal's health</label><br>
-                        <select name="health">
+                        <select style="color:black;" name="health">
                             <option>Condition...</option>
                             <div id="age">
                                 <option value="Ill">Ill</option>
@@ -68,7 +67,7 @@
 
                     <div class="form-group">
                         <label>Age</label><br>
-                        <select name="age">
+                        <select style="color:black;" name="age">
                             <option>Estimate...</option>
                             <div id="age">
                                 <option value="Newborn">Newborn</option>
@@ -110,23 +109,23 @@
                             {{#each animals}}
 
 
-                        {{#each sightings}}
+                                {{#each sightings}}
 
-                                {{#each animals}}
+                                    {{#each animals}}
 
-                            <tr>
-                                <td>{{ranger}}</td>
-                                <td>{{name}}</td>
-                                <td>{{endangered}}</td>
-                                <td>{{location}}</td>
-                                <td>{{health}}</td>
-                                <td>{{age}}</td>
-                                <td>{{date}}</td>
-                            </tr>
+                                        <tr>
+                                            <td>{{ranger}}</td>
+                                            <td>{{name}}</td>
+                                            <td>{{endangered}}</td>
+                                            <td>{{location}}</td>
+                                            <td>{{health}}</td>
+                                            <td>{{age}}</td>
+                                            <td>{{date}}</td>
+                                        </tr>
+                                    {{/each}}
                                 {{/each}}
-                        {{/each}}
 
-                         {{/each}}
+                            {{/each}}
                         {{/if}}
 
                         </tbody>
