@@ -23,19 +23,24 @@ public class App {
         }
 
         port(port);
-        
+
         Map<String, Object> model = new HashMap<String, Object>();
         String layout = "templates/layout.hbs";
 
         get("/", (request, response) -> {
-            model.put("animals", Animal.all());
+//            model.put("animals", Animal.all());
+            return new ModelAndView(model, "welcome.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        get("/welcome", (request, response) -> {
+//            model.put("animals", Animal.all());
             return new ModelAndView(model, "homepage.hbs");
         }, new HandlebarsTemplateEngine());
 
         get("/homepage", (request, response) -> {
             List<Animal> animals = Animal.all();
             model.put("animals", animals);
-            return new ModelAndView(model, layout);
+            return new ModelAndView(model, "homepage.hbs");
         }, new HandlebarsTemplateEngine());
 
         post("/show", (request, response) -> {
