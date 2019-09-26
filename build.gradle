@@ -12,10 +12,6 @@ repositories {
     mavenCentral()
 }
 
-applicationName = "wild-life-app"
-mainClassName = 'App'
-task stage(dependsOn: ['clean', 'installDist'])
-
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
     compile "com.sparkjava:spark-core:2.6.0"
@@ -26,3 +22,6 @@ dependencies {
     compile group: 'postgresql', name: 'postgresql', version: '9.0-801.jdbc4' // ADD ME FOR POSTGRES VERSION 9.x
     compile group: 'org.postgresql', name: 'postgresql', version: '42.2.2' // ADD ME FOR POSTGRES VERSION 10.x
 }
+applicationName = "wild-life-app"
+mainClassName = 'App'
+task stage(dependsOn: ['clean', 'installDist'])
