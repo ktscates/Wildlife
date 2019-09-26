@@ -19,11 +19,11 @@ public class DB {
             int port = dbUri.getPort();
             String host = dbUri.getHost();
             String path = dbUri.getPath();
-            String username = (dbUri.getUserInfo() == null) ? "ktscates" : dbUri.getUserInfo().split(":")[0];
+            String username = (dbUri.getUserInfo() == null) ? "ktscates": dbUri.getUserInfo().split(":")[0];
             String password = (dbUri.getUserInfo() == null) ? "ktscates" : dbUri.getUserInfo().split(":")[1];
-            sql2o = new Sql2o("jdbc:postgresql://localhost:5432/wildlife", "ktscates", "ktscates");
+            sql2o = new Sql2o("jdbc:postgresql:localhost:5432/wildlife", "ktscates", "ktscates");
         } catch (URISyntaxException e ) {
-            logger.error("Unable to connect to database.");
+            
         }
     }
 }
