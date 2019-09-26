@@ -1,0 +1,1 @@
+web: ./build/install/wild-life-app/bin/wild-life-app
