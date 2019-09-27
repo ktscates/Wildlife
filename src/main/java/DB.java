@@ -1,29 +1,7 @@
-
 import org.sql2o.*;
-import java.net.URI;
-import java.net.URISyntaxException;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-public class DB {
-    private static URI dbUri;
-    public static Sql2o sql2o;
-    Logger logger = LoggerFactory.getLogger(DB.class);
-    static {
 
-        try {
-            if (System.getenv("DATABASE_URL") == null) {
-                dbUri = new URI("postgres://localhost:5432/wildlife");
-            } else {
-                dbUri = new URI(System.getenv("DATABASE_URL"));
-            }
-            int port = dbUri.getPort();
-            String host = dbUri.getHost();
-            String path = dbUri.getPath();
-            String username = (dbUri.getUserInfo() == null) ? "ktscates": dbUri.getUserInfo().split(":")[0];
-            String password = (dbUri.getUserInfo() == null) ? "ktscates" : dbUri.getUserInfo().split(":")[1];
-            sql2o = new Sql2o("jdbc:postgresql:localhost:5432/wildlife", "ktscates", "ktscates");
-        } catch (URISyntaxException e ) {
-            
-        }
-    }
+public class DB {
+//    public static Sql2o sql2o = new Sql2o("jdbc:postgresql://localhost:5432/wildlife", "ktscates", "ktscates");
+    String connectionString = "jdbc:postgresql://ec2-54-243-208-234.compute-1.amazonaws.com:5432/dfp2c3nv09p3en";
+    Sql2o sql2o = new Sql2o(connectionString, "fnhbwokxksfcfg", "8119d17f0672f23e9364425b68ca3d5fbf5fcafc40ebcccd1565b6f9ec5b64c5");
 }
