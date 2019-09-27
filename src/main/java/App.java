@@ -2,7 +2,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.HashMap;
 import spark.ModelAndView;
-import spark.template.handlebars.HandlebarsTemplateEngine;
+import spark.template.handlebars.*;
 
 import static spark.Spark.*;
 
